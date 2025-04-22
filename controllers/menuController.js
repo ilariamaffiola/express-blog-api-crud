@@ -8,7 +8,7 @@ function show (req,res){
     //res.send(`dettaglio della pietanza ${req.params.id}`);
     const id = parseInt(req.params.id);
     const pietanza = menu.find(pietanza => pietanza.id === id);
-    res.json(pietanza);
+   
     console.log(pietanza);
     if(pietanza===undefined){
         res.status(404);
@@ -16,7 +16,8 @@ function show (req,res){
             "error":"not found",
             "message": "la pietanza non è presente nel menù",
         });
-    };
+    }; 
+    res.json(pietanza);
 };
 function store (req,res){
     res.send('crea una nuova pietanza');
