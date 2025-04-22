@@ -1,9 +1,22 @@
+const posts = require('../data/posts.js');
 const menu = require('../data/posts.js');
 
 function index(req,res){
     //res.send('lista delle pizze');
-    res.json(menu);
-}
+    //res.json(menu);
+    console.log(req.query);
+    const tag = req.query.tags;
+    console.log(tag);
+    console.log(req.params);
+    const filteredMenu = menu;
+     if(tag){
+         filteredMenu = menu.filter((pietanza) => {
+             return pietanza.tags.includes(tag);
+         });
+     };
+     res.json(filteredMenu);
+};
+
 function show (req,res){
     //res.send(`dettaglio della pietanza ${req.params.id}`);
     const id = parseInt(req.params.id);
