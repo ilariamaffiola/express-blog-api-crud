@@ -12,4 +12,7 @@ app.get('/', (req,res) =>{
 //inserisco app listen per restare in ascolto sulla porta 3000
 app.listen(port, () => {
     console.log(`Server in ascolto sulla porta ${port}`);
-})
+});
+
+const menuRouter = require('./routers/router.js');
+app.use('/menu', menuRouter);
