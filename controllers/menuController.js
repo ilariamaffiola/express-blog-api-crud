@@ -29,7 +29,23 @@ function modify (req,res){
     res.send(`modfica parziale della pietanza ${req.params.id}`);
 }
 function destroy (req,res){
-    res.send(`elimina la pietanza ${req.params.id}`);
+    //res.send(`elimina la pietanza ${req.params.id}`);
+    const id = parseInt(req.params.id);
+    const pietanza = menu.find(pietanza => pietanza.id === id);
+    menu.splice(menu.indexOf(pietanza),1);
+    if(pietanza===undefined){
+        res.status(404);
+        res.json({
+            "error":"not found",
+            "message": "la pietanza non è presente nel menù",
+        });
+    }; 
+    console.log(menu);
+    res.status(204);
+    res.json({
+        "success": true,
+        "message": "la pietanza è stata eliminata",
+    });
 }
 
 module.exports = {
