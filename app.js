@@ -1,5 +1,5 @@
 //richiamo express in una variabile
-const express = require('expreress');
+const express = require('express');
 //inizializzo express
 const app = express();
 //definisco la porta
