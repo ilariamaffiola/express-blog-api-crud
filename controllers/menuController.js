@@ -7,8 +7,7 @@ function index(req,res){
     console.log(req.query);
     const tag = req.query.tags;
     console.log(tag);
-    console.log(req.params);
-    const filteredMenu = menu;
+    let filteredMenu = menu;
      if(tag){
          filteredMenu = menu.filter((pietanza) => {
              return pietanza.tags.includes(tag);
