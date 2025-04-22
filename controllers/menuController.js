@@ -1,7 +1,8 @@
 const menu = require('../data/posts.js');
 
 function index(req,res){
-    res.send('lista delle pizze');
+    //res.send('lista delle pizze');
+    res.json(menu);
 }
 function show (req,res){
     res.send(`dettaglio della pietanza ${req.params.id}`); 
