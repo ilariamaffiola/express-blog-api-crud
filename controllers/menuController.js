@@ -45,7 +45,23 @@ function store (req,res){
      res.json(newPietanza);
 }
 function update (req,res){
-    res.send(`modfica totale della pietanza ${req.params.id}`);
+    //res.send(`modfica totale della pietanza ${req.params.id}`);
+    const id= parseInt(req.params.id);
+    const pietanza = menu.find(pietanza => pietanza.id === id);
+    if(!pietanza){
+        res.status(404);
+        res.json({
+            "error": "not found",
+            "message": "la pietanza non è stata trovata"
+        });
+    }
+        pietanza.title = req.body.title;
+        pietanza.content = req.body.content;
+        pietanza.image = req.body.image;
+        pietanza.tags = req.body.tags;
+        console.log(menu);
+        res.json(pietanza);
+    
 }
 function modify (req,res){
     res.send(`modfica parziale della pietanza ${req.params.id}`);
