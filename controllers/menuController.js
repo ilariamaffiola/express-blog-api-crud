@@ -31,18 +31,18 @@ function show (req,res){
 };
 function store (req,res){
     //res.send('crea una nuova pietanza');
-    const newId = menu [menu.length - 1 ].id + 1;
-    const newPietanza = {
-        id: newId,
-        title: req.body.title,
-        content: req.body.content,
-        image: req.body.image,
-        tags: req.body.tags
-    }
-    menu.push(newPietanza);
-    console.log(menu);
-    res.status(201);
-    res.json(newPietanza);
+     const newId = menu [menu.length - 1 ].id + 1;
+     const newPietanza = {
+         id: newId,
+         title: req.body.title,
+         content: req.body.content,
+         image: req.body.image,
+         tags: req.body.tags
+     }
+     menu.push(newPietanza);
+     console.log(menu);
+     res.status(201);
+     res.json(newPietanza);
 }
 function update (req,res){
     res.send(`modfica totale della pietanza ${req.params.id}`);

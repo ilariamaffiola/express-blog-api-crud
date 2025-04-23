@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 //definisco la porta
 const port = 3000;
-
+app.use(express.json());
 //defisco la prima rotta
 app.get('/', (req,res) =>{
     res.send('Hello World!');
@@ -16,4 +16,3 @@ app.listen(port, () => {
 
 const menuRouter = require('./routers/router.js');
 app.use('/menu', menuRouter);
-app.use(express.json());
