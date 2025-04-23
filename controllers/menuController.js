@@ -1,6 +1,4 @@
-const posts = require('../data/posts.js');
 const menu = require('../data/posts.js');
-
 function index(req,res){
     //res.send('lista delle pizze');
     //res.json(menu);
@@ -32,7 +30,19 @@ function show (req,res){
     res.json(pietanza);
 };
 function store (req,res){
-    res.send('crea una nuova pietanza');
+    //res.send('crea una nuova pietanza');
+    const newId = menu [menu.length - 1 ].id + 1;
+    const newPietanza = {
+        id: newId,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    }
+    menu.push(newPietanza);
+    console.log(menu);
+    res.status(201);
+    res.json(newPietanza);
 }
 function update (req,res){
     res.send(`modfica totale della pietanza ${req.params.id}`);

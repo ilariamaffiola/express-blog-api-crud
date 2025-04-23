@@ -16,3 +16,4 @@ app.listen(port, () => {
 
 const menuRouter = require('./routers/router.js');
 app.use('/menu', menuRouter);
+app.use(express.json());
