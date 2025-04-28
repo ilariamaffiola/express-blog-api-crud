@@ -18,15 +18,15 @@ function show (req,res){
     //res.send(`dettaglio della pietanza ${req.params.id}`);
     const id = parseInt(req.params.id);
     const pietanza = menu.find(pietanza => pietanza.id === id);
-   
+
     console.log(pietanza);
-    if(pietanza===undefined){
-        res.status(404);
-        res.json({
-            "error":"not found",
-            "message": "la pietanza non è presente nel menù",
-        });
-    }; 
+    // if(pietanza===undefined){
+    //     res.status(404);
+    //     res.json({
+    //         "error":"not found",
+    //         "message": "la pietanza non è presente nel menù",
+    //     });
+    // };
     res.json(pietanza);
 };
 function store (req,res){
@@ -61,7 +61,7 @@ function update (req,res){
         pietanza.tags = req.body.tags;
         console.log(menu);
         res.json(pietanza);
-    
+
 }
 function modify (req,res){
     res.send(`modfica parziale della pietanza ${req.params.id}`);
@@ -77,7 +77,7 @@ function destroy (req,res){
             "error":"not found",
             "message": "la pietanza non è presente nel menù",
         });
-    }; 
+    };
     console.log(menu);
     res.status(204);
     res.json({

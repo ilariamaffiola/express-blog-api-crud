@@ -10,11 +10,12 @@ app.use(express.json());
 app.get('/', (req,res) =>{
     res.send('Hello World!');
 });
-app.use(notFound);
 //inserisco app listen per restare in ascolto sulla porta 3000
 app.listen(port, () => {
     console.log(`Server in ascolto sulla porta ${port}`);
 });
 
 const menuRouter = require('./routers/router.js');
+
 app.use('/menu', menuRouter);
+app.use(notFound);

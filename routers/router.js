@@ -18,6 +18,5 @@ router.patch('/:id', (menuController.modify));
 router.delete('/:id', (menuController.destroy));
 
 
-
 //esporta il router
 module.exports = router;
