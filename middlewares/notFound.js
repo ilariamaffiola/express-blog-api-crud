@@ -5,3 +5,4 @@ function notFound(req, res, next) {
         "message": "Il post non è stato trovato",
     })
 }
+module.exports = notFound;
