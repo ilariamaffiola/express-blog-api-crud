@@ -20,13 +20,13 @@ function show (req,res){
     const pietanza = menu.find(pietanza => pietanza.id === id);
 
     console.log(pietanza);
-    // if(pietanza===undefined){
-    //     res.status(404);
-    //     res.json({
-    //         "error":"not found",
-    //         "message": "la pietanza non è presente nel menù",
-    //     });
-    // };
+     if(pietanza===undefined){
+        res.status(404);
+        res.json({
+            "error":"not found",
+             "message": "la pietanza non è presente nel menù",
+         });
+     };
     res.json(pietanza);
 };
 function store (req,res){

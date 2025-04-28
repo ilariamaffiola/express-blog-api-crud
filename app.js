@@ -1,11 +1,12 @@
 //richiamo express in una variabile
 const express = require('express');
-const notFound = require('./middlewares/notFound.js');
 //inizializzo express
 const app = express();
 //definisco la porta
 const port = 3000;
 app.use(express.json());
+const notFound = require('./middlewares/notFound.js');
+const errorsHandler = require('./middlewares/errorsHandler.js');
 //defisco la prima rotta
 app.get('/', (req,res) =>{
     res.send('Hello World!');
@@ -19,3 +20,4 @@ const menuRouter = require('./routers/router.js');
 
 app.use('/menu', menuRouter);
 app.use(notFound);
+app.use(errorsHandler);
